@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CustomScaffolding.Models.UserModel>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h1>کاربران</h1>
+
+<p>
+    <a asp-action="Create">افزودن یک فیلد جدید</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Family)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "جزئیات", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("حذف", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
